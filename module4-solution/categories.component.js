@@ -1,23 +1,16 @@
 (function () {
-    'use strict';
-  
-    angular.module('MenuApp')
-      .component('categories', {
-        templateUrl: 'categories.html',
-        controller: CategoriesController
-      });
-  
-    CategoriesController.$inject = ['MenuDataService'];
-    function CategoriesController(MenuDataService) {
-      var $ctrl = this;
-  
-      $ctrl.categories = [];
-  
-      $ctrl.$onInit = function () {
-        MenuDataService.getAllCategories().then(function (categories) {
-          $ctrl.categories = categories;
-        });
-      };
-    }
-  })();
-  
+  'use strict';
+
+  angular.module('MenuApp')
+    .component('categories', {
+      templateUrl: 'path/to/categories.template.html',
+      controller: CategoriesController,
+      bindings: {
+        categoriesList: '<'
+      }
+    });
+
+  function CategoriesController() {
+    // Controller logic here
+  }
+})();

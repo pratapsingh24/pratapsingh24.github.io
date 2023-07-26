@@ -1,7 +1,7 @@
 (function () {
     'use strict';
   
-    angular.module('data')
+    angular.module('MenuApp.data')
       .service('MenuDataService', MenuDataService);
   
     MenuDataService.$inject = ['$http'];
@@ -12,8 +12,6 @@
         return $http({
           method: 'GET',
           url: 'https://coursera-jhu-default-rtdb.firebaseio.com/categories.json'
-        }).then(function (response) {
-          return response.data;
         });
       };
   
@@ -21,8 +19,6 @@
         return $http({
           method: 'GET',
           url: 'https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/' + categoryShortName + '.json'
-        }).then(function (response) {
-          return response.data;
         });
       };
     }

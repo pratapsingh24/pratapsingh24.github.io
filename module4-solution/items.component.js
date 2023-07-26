@@ -1,26 +1,16 @@
 (function () {
-    'use strict';
-  
-    angular.module('MenuApp')
-      .component('items', {
-        templateUrl: 'items.html',
-        controller: ItemsController,
-        bindings: {
-          categoryShortName: '<'
-        }
-      });
-  
-    ItemsController.$inject = ['MenuDataService'];
-    function ItemsController(MenuDataService) {
-      var $ctrl = this;
-  
-      $ctrl.items = [];
-  
-      $ctrl.$onInit = function () {
-        MenuDataService.getItemsForCategory($ctrl.categoryShortName).then(function (items) {
-          $ctrl.items = items;
-        });
-      };
-    }
-  })();
-  
+  'use strict';
+
+  angular.module('MenuApp')
+    .component('items', {
+      templateUrl: 'path/to/items.template.html',
+      controller: ItemsController,
+      bindings: {
+        itemsList: '<'
+      }
+    });
+
+  function ItemsController() {
+    // Controller logic here
+  }
+})();
