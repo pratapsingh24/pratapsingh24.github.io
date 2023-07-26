@@ -6,7 +6,12 @@
       <p>Last Name: {{ myInfoCtrl.userInfo.lastName }}</p>
       <p>Email: {{ myInfoCtrl.userInfo.email }}</p>
       <p>Phone: {{ myInfoCtrl.userInfo.phone }}</p>
-      <!-- Display favorite dish information here -->
+      <div ng-if="myInfoCtrl.favoriteDish">
+        <h3>Favorite Dish</h3>
+        <img ng-src="{{ myInfoCtrl.favoriteDish.image_url }}" alt="{{ myInfoCtrl.favoriteDish.name }}">
+        <p>Name: {{ myInfoCtrl.favoriteDish.name }}</p>
+        <p>Description: {{ myInfoCtrl.favoriteDish.description }}</p>
+      </div>
     </div>
   </div>
   

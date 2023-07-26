@@ -1,8 +1,14 @@
-<form ng-submit="signUpCtrl.submitForm()">
+<form name="signUpCtrl.signupForm" ng-submit="signUpCtrl.submitForm()">
     <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" ng-model="signUpCtrl.firstName" required>
-  
+    <input type="text" id="firstName" name="firstName" ng-model="signUpCtrl.form.firstName" required>
     <!-- Implement other form fields here -->
+  
+    <label for="favoriteDish">Favorite Dish (Menu Number):</label>
+    <input type="text" id="favoriteDish" name="favoriteDish" ng-model="signUpCtrl.form.favoriteDish" required>
+  
+    <div class="error-message" ng-show="!signUpCtrl.dishExists">
+      No such menu number exists.
+    </div>
   
     <button type="submit">Submit</button>
   </form>
