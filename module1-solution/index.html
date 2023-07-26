@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="LunchCheck">
+<head>
+  <title>Lunch Check</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="container" ng-controller="LunchCheckController">
+    <h2>Lunch Check</h2>
+    <p>Please enter the items you usually eat for lunch (comma-separated):</p>
+    <input type="text" ng-model="lunchItems" placeholder="Enter items here...">
+    <button ng-click="checkIfTooMuch()">Check If Too Much</button>
+    <p ng-if="message" ng-class="{'error': tooMuch, 'success': !tooMuch}">{{message}}</p>
+    <!-- Bonus feature: Add comment for not considering empty items -->
+    <p class="note">Note: Empty items like ', ,' are not considered.</p>
+  </div>
+</body>
+</html>
