@@ -1,0 +1,28 @@
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  
+  .message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #999;
+  }
+  
