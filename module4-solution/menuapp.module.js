@@ -1,6 +1,5 @@
-(function () {
+(function() {
     'use strict';
-  
-    angular.module('MenuApp', ['ui.router']);
-  })();
-  
+
+    angular.module('MenuApp', ['data', 'ui.router']).constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
+})();
