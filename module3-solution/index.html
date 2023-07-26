@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="NarrowItDownApp">
+<head>
+  <title>Narrow It Down</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="container" ng-controller="NarrowItDownController as narrow">
+    <h2>Narrow It Down For Me!</h2>
+    <input type="text" ng-model="narrow.searchTerm" placeholder="Search menu items...">
+    <button ng-click="narrow.narrowItDown()">Narrow It Down</button>
+    <div class="menu-list">
+      <found-items items="narrow.foundItems" on-remove="narrow.removeItem(index)"></found-items>
+      <p class="message" ng-if="narrow.foundItems.length === 0 && narrow.searchTerm">Nothing found</p>
+    </div>
+  </div>
+</body>
+</html>
