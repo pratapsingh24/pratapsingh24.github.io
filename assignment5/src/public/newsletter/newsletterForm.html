@@ -1,0 +1,90 @@
+
+<ui-view>
+    <div class="form-group container">
+    <h1>Newsletter Form Validation</h1>
+
+    <p>Subscribe to the restaurant's newsletter!</p>
+    <fieldset>
+      <p>Registration</p>
+      <form name='newsletterForm' novalidate>
+
+        <input type="text" class="form-control" name="firstname" placeholder="First Name"
+          ng-model="newsletterCtrl.user.firstname"
+          required
+          minlength="4"
+          ng-maxlength="10">
+          {{ newsletterCtrl.user.username }}
+          <span
+            ng-if="(newsletterForm.firstname.$error.minlength || newsletterForm.firstname.$error.required) && newsletterForm.firstname.$touched">
+            First Name must be at least 4 characters long
+          </span>
+          <span ng-if="newsletterForm.firstname.$error.maxlength && newsletterForm.firstname.$touched">
+            Username must not be longer than 10 characters
+          </span>
+          <br>
+
+      <input type="text" class="form-control" name="lastname" placeholder="Last Name"
+        ng-model="newsletterCtrl.user.lastname"
+        required
+        minlength="4"
+        ng-maxlength="10">
+        {{ newsletterCtrl.user.lastname }}
+        <span
+          ng-if="(newsletterForm.lastname.$error.minlength || newsletterForm.lastname.$error.required) && newsletterForm.lastname.$touched">
+          Last Name must be at least 4 characters long
+        </span>
+        <span ng-if="newsletterForm.lastname.$error.maxlength && newsletterForm.lastname.$touched">
+          Last Name must not be longer than 10 characters
+        </span>
+        <br>
+
+        <input type="text" class="form-control" name="short_name" placeholder="Menu Item"
+          ng-model="newsletterCtrl.menu.short_name"
+          required
+          ng-maxlength="10">
+          {{ newsletterCtrl.menu.short_name }}
+          <span
+            ng-if="(newsletterForm.short_name.$error.required) && newsletterForm.short_name.$touched">
+            Please specify an input
+          </span>
+          <span ng-if="newsletterForm.short_name.$error.maxlength && newsletterForm.short_name.$touched">
+            Menu Item Name must not be longer than 10 characters
+          </span>
+
+          <br>
+
+        <input type="email" class="form-control" name="email" placeholder="Email"
+          ng-model="newsletterCtrl.user.email"
+          required>
+          <span ng-if="newsletterForm.email.$invalid && newsletterForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####"
+          ng-model="newsletterCtrl.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span ng-if="newsletterForm.phone.$invalid && newsletterForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <button type="submit" class="btn btn-default"
+          ng-disabled="newsletterForm.$invalid"
+          ng-click="newsletterCtrl.submit()">Submit</button>
+
+          <div style="margin-top: 10px;">
+            Form valid? {{ newsletterForm.$valid }}
+          </div>
+      </form>
+    </fieldset>
+
+    <div class="alert alert-success" ng-if="newsletterCtrl.successMsg != ''">
+    <strong>Success!</strong> {{newsletterCtrl.successMsg}}.
+  </div>
+    <div class="alert alert-danger" ng-if="newsletterCtrl.errorMsg != ''">
+        <strong>Error!</strong> {{newsletterCtrl.errorMsg}}.
+    </div>
+</div>
+</form>
+</ui-view>
